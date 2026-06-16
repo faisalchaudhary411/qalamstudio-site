@@ -841,18 +841,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Skip button
   if (adSkipBtn) adSkipBtn.addEventListener('click', function() { goToApp(); });
 
-  // All ad-trigger buttons
+  // All launch buttons go directly to app (no ad overlay on launch)
   document.querySelectorAll('.ad-trigger').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault(); e.stopPropagation();
-      startAdOverlay();
+      window.location.href = APP_URL;
     });
   });
 
   // Footer Launch App link
   document.querySelectorAll('.qs-app-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
-      e.preventDefault(); startAdOverlay();
+      e.preventDefault();
+      window.location.href = APP_URL;
     });
   });
 
